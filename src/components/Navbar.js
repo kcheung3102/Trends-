@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addCart } from '../actions/addAction';
+import { getNumbers } from '../actions/getAction';
 
 
 const useStyles = makeStyles(theme => ({
@@ -32,7 +32,11 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function Navbar() {
+function Navbar(props) {
+
+  useEffect(() => {
+    getNumbers();
+  }, [])
 
     const classes = useStyles();
     return (
@@ -53,7 +57,7 @@ function Navbar() {
           <Button className={classes.buttonSize}>Shop</Button>
           </Link>
           <Link to='/Cart' className={classes.links}>
-          <Button className={classes.buttonSize}>Cart:<span className={classes.basket}>0</span></Button>
+          <Button className={classes.buttonSize}>Cart:<span className={classes.basket}>{props.cartProps.cartNumbers}</span></Button>
           </Link>
         </Toolbar>
       </AppBar>
@@ -64,4 +68,4 @@ function Navbar() {
 const mapStatesToProps = state => ({
   cartProps: state.cartState
 })
-export default connect(mapStatesToProps, {addCart})(Navbar);
+export default connect(mapStatesToProps, {getNumbers})(Navbar);
