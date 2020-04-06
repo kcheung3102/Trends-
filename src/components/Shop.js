@@ -4,8 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles'
 import Divider from '@material-ui/core/Divider';
 import ProductList from './ProductList';
-import { connect } from 'react-redux';
-import { addCart } from '../actions/addAction'
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -47,4 +46,4 @@ const Shop = () => {
     );
 };
 
-export default connect(null)(Shop);
+export default Shop;

@@ -5,7 +5,7 @@ import Landing from './components/Landing';
 import Shop from './components/Shop';
 import Cart from './components/Cart';
 import {Switch,Route} from 'react-router-dom';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
 
 function App() {
   return (
@@ -13,9 +13,9 @@ function App() {
       <React.Fragment>
         <Navbar />
           <Switch>
-                <Route exact path ='/' component ={Landing} />
-                <Route exact path ='/Shop' component ={Shop} />
-                <Route exact path ='/Cart' component ={Cart} />
+                <Route exact path ='/' component = { Landing } />
+                <Route exact path ='/Shop' component = { Shop } />
+                <Route exact path ='/Cart' component = { Cart } />
           </Switch>
       </React.Fragment>
     </div>

@@ -1,14 +1,16 @@
 import React from 'react';
-import { makeStyles, withTheme } from '@material-ui/core/styles';
+import { makeStyles} from '@material-ui/core/styles';
 import CardMain from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import CardHeader from '@material-ui/core/CardHeader';
 import IconButton from '@material-ui/core/IconButton';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import CardMedia from '@material-ui/core/CardMedia';
+import { connect } from 'react-redux'
+import { addCart } from '../actions/addAction';
+
 
 const useStyles = makeStyles({
   content: {
@@ -21,23 +23,17 @@ const useStyles = makeStyles({
    fontSize: 14,
  },
  button: {
-   fontSize:11,
+   fontSize:13,
  }
 });
 
-const Card = props => {
+const Card = (props) => {
+  console.log(props);
   const classes = useStyles();
   const {id, title, description, img, price} = props;
   return (
     <CardMain variant="outlined" className={classes.borderColor}>
-      <CardHeader
-        // avatar={
-        //   <Avatar aria-label="recipe">
-        //     R
-        //   </Avatar>
-        // }
 
-      />
          <CardMedia
         image={img}  
         style={{ height: "250px" }} 
@@ -52,10 +48,9 @@ const Card = props => {
         <Typography className={classes.content} color="textSecondary" gutterBottom>
           {description}
         </Typography>
-    
       </CardContent>
       <CardActions>
-        <Button size="small" className={classes.button}>Add To Cart</Button>
+        <Button size="small" onClick={props.addCart} className={classes.button}>Add To Cart</Button>
         <Button size="small" className={classes.button}>More Info</Button>
         <IconButton aria-label="settings">
             <ShareOutlinedIcon />
@@ -65,4 +60,4 @@ const Card = props => {
   );
 };
 
-export default Card
+export default connect(null, {addCart})(Card);
