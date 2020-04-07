@@ -2,7 +2,11 @@
 import { ADD_PRODUCT_CART, GET_NUMBERS_CART } from "../actions/types";
 
 const initialState = {
-    cartNumbers: 0
+    cartNumbers: 0,
+    cartTotal: 0,
+    products: {
+        
+    }
 }
  export default (state = initialState, action) => {
      switch(action.type){
