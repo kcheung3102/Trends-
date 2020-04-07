@@ -4,10 +4,14 @@ import CardMain from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import CardMedia from '@material-ui/core/CardMedia';
+import CardHeader from '@material-ui/core/CardHeader';
+
 import { connect } from 'react-redux'
 import { addCart } from '../actions/addAction';
 
@@ -24,6 +28,12 @@ const useStyles = makeStyles({
  },
  button: {
    fontSize:13,
+ },
+ picSize: {
+   height: "320px",
+ },
+ favIcon: {
+   margin: 20,
  }
 });
 
@@ -33,10 +43,21 @@ const Card = (props) => {
   const {id, title, description, img, price} = props;
   return (
     <CardMain variant="outlined" className={classes.borderColor}>
+      <CardHeader 
+        action={
+          <IconButton>
+            <Fab disabled aria-label="like" className={classes.favIcon}>
+                <FavoriteIcon />
+            </Fab>
+          </IconButton>
+        }
 
+      />
+           
+ 
          <CardMedia
         image={img}  
-        style={{ height: "250px" }} 
+        className={classes.picSize}
       />
       <CardContent>
       <Typography variant="h5" component="h2">
@@ -53,7 +74,6 @@ const Card = (props) => {
         <Button size="small" onClick={props.addCart} className={classes.button}>Add To Cart</Button>
         <Button size="small" className={classes.button}>More Info</Button>
         <IconButton aria-label="settings">
-            <ShareOutlinedIcon />
           </IconButton>
       </CardActions>
     </CardMain>
