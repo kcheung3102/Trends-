@@ -45,7 +45,17 @@ const initialState = {
             addQuantity.inCart = true;
             console.log(addQuantity);
              return {
-                 cartNumbers: state.cartNumbers + 1
+                 ...state,
+                 cartNumbers: state.cartNumbers + 1,
+
+                 //updates cart total
+                 cartTotal: state.cartTotal + state.products[action.payload].price,
+
+                 //updates products
+                 products: {
+                     ...state.products,
+                    [action.payload]: addQuantity
+                 }
              }
          case GET_NUMBERS_CART:
              return {

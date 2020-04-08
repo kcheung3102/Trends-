@@ -77,4 +77,4 @@ function Navbar(props) {
 const mapStatesToProps = state => ({
   cartProps: state.cartState
 })
-export default connect(mapStatesToProps, {getNumbers})(Navbar);
+export default connect(mapStatesToProps, { getNumbers })(Navbar);
