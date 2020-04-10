@@ -34,7 +34,7 @@ export default [
         title: " Grey Long Sleeve Shirt",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis justo efficitur eleifend dictum. Proin faucibus ligula vitae orci rutrum vulputate.",
         sizeAvailable: ["S", "M", "L"],
-        img: "https://eu.patagonia.com/dis/dw/image/v2/ABBM_PRD/on/demandware.static/-/Sites-patagonia-master/default/dw0e4e8d91/images/hi-res/45180_FEA.jpg?sw=750&sh=750&sm=fit&sfrm=png",
+        img: "https://i5.walmartimages.com/asr/5f3621a9-eb28-4338-abfb-65c1ed00c530_1.a2b03d15ed5b83abb2b0dce25a315cdb.jpeg",
         price: 19.99,
         inCart: false,
     },

@@ -4,6 +4,7 @@ import Card from './Card';
 import dataLoader from '../dataloader';
 
 const ProductList = () => {
+    /* The Product list is populated through a dataloader */
 
     const getData = dataLoaderObj => {
         return (
